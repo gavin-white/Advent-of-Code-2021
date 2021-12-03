@@ -4,6 +4,8 @@
 #include <sstream>
 #include <vector>
 
+#include "driver.h"
+
 void solution(std::ifstream & input) {
   std::string line;
   getline(input, line);
@@ -39,19 +41,4 @@ void solution(std::ifstream & input) {
   unsigned short num2 = std::stoi(bnum2, nullptr, 2);
   
   std::cout << num * num2 << std::endl;
-}
-
-int main(int argc, char ** args) {
-  if (argc != 2) {
-    std::cout << "Program takes exactly 1 argument, the name of the file "
-      << "to read input from. You gave " << argc - 1 << " arguments." << std::endl;
-    return -1;
-  }
-  std::ifstream file (args[1]);
-  if (file.is_open()) {
-    solution(file);
-    file.close();
-  } else {
-    std::cout << "Unable to open file!" << std::endl; 
-  }
 }

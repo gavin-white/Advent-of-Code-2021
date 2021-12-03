@@ -4,6 +4,8 @@
 #include <sstream>
 #include <vector>
 
+#include "driver.h"
+
 int filter(std::vector<std::string> & numbers, char(*keeper)(int));
 
 void solution(std::ifstream & input) {
@@ -46,19 +48,4 @@ int filter(std::vector<std::string> & numbers, char(*keeper)(int)) {
     }
   }
   return stoi(numbers[0], nullptr, 2);
-}
-
-int main(int argc, char ** args) {
-  if (argc != 2) {
-    std::cout << "Program takes exactly 1 argument, the name of the file "
-      << "to read input from. You gave " << argc - 1 << " arguments." << std::endl;
-    return -1;
-  }
-  std::ifstream file (args[1]);
-  if (file.is_open()) {
-    solution(file);
-    file.close();
-  } else {
-    std::cout << "Unable to open file!" << std::endl; 
-  }
 }
