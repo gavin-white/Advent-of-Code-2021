@@ -8,8 +8,8 @@ void solution(std::ifstream & input) {
   std::string line;
   getline(input, line);
   std::vector<int> quants = std::vector<int>(line.size());
-  for (int i : quants) {
-    i = 0;
+  for (int i = 0; i < quants.size(); i++) {
+    quants[i] = line[i] - '0';
   }
 
   while (getline(input, line)) {
